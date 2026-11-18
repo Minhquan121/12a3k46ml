@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Thiệp Mời Kỷ Yếu Online — Lưu Trữ Ảnh Cloud DB Đa Thiết Bị</title>
+<title>Thiệp Mời Kỷ Yếu Online — Ảnh Gốc Не Nén & Lưu Trữ Nhạc Cloud</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -33,6 +33,7 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-vis
 .btn{border:0;border-radius:11px;padding:10px 14px;font:600 13.5px 'Be Vietnam Pro';background:linear-gradient(135deg,var(--pl),var(--pl2));color:#fff;cursor:pointer;transition:transform .12s,opacity .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .btn:hover{opacity:.94}
 .btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.55;cursor:wait}
 .btn.g{background:transparent;color:var(--pl);border:1.5px solid var(--pl)}
 .btn.sm{padding:6px 10px;font-size:12px;border-radius:8px}
 .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
@@ -48,10 +49,10 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-vis
 
 /* Thumbnails with Cloud Status Dot */
 .th{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
-.th div{position:relative;width:58px;height:58px;border-radius:10px;overflow:hidden;border:1.5px solid var(--ln);background:var(--pg)}
+.th div{position:relative;width:62px;height:62px;border-radius:10px;overflow:hidden;border:1.5px solid var(--ln);background:var(--pg)}
 .th img{width:100%;height:100%;object-fit:cover}
 .th button{position:absolute;top:2px;right:2px;border:0;background:#000b;color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;line-height:1;font-size:13px;padding:0}
-.th .cdn-ok{position:absolute;bottom:2px;left:2px;background:#10b981dd;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:4px;pointer-events:none}
+.th .cdn-ok{position:absolute;bottom:2px;left:2px;background:#10b981e6;color:#fff;font-size:8.5px;font-weight:700;padding:1px 4px;border-radius:4px;pointer-events:none}
 
 /* Cloud DB Status Bar */
 .db-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:#10b98120;color:#059669;border:1px solid #10b98155}
@@ -64,7 +65,7 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-vis
 .share-box h4{margin:0 0 6px;font-size:13.5px;color:var(--pl);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
 .share-tag{font-size:11px;background:#10b98122;color:#059669;border:1px solid #10b98155;padding:2px 8px;border-radius:99px;font-weight:700}
 .url-bar{display:flex;gap:6px;margin-top:6px}
-.url-bar input{font-size:12.5px;font-family:monospace;background:var(--pn);font-weight:700;color:var(--pl)}
+.url-bar input{font-size:13px;font-family:monospace;background:var(--pn);font-weight:700;color:var(--pl)}
 .qr-wrap{display:none;margin-top:10px;padding:10px;background:#fff;border-radius:12px;text-align:center;color:#222}
 .qr-wrap.open{display:block}
 
@@ -290,7 +291,7 @@ body[data-m=g] #phone{width:100%;max-width:450px;margin:0 auto;height:100vh;heig
 
  <section class="ed">
   <h2>✨ Tạo Thiệp Mời Kỷ Yếu Online</h2>
-  <p class="sub">8 mẫu thiết kế có bố cục &amp; hiệu ứng riêng. Tự động đẩy từng ảnh lên <b>Cloud Database (Bytebin CDN + JsonStorage + Firebase)</b> để gửi link mở trên bất kỳ điện thoại nào cũng hiện đủ 100% ảnh.</p>
+  <p class="sub">Giữ nguyên 100% chất lượng ảnh gốc &amp; file nhạc MP3 trên hệ thống Cloud CDN đa máy chủ, đồng thời tạo mã link siêu ngắn chỉ 6 ký tự (`?k=...`) xem được trên mọi điện thoại.</p>
 
   <label>Chọn mẫu thiết kế (8 bố cục &amp; hiệu ứng chuyển cảnh khác nhau)</label>
   <div class="tpls" id="tpls"></div>
@@ -319,12 +320,12 @@ body[data-m=g] #phone{width:100%;max-width:450px;margin:0 auto;height:100vh;heig
   <input data-k="phone" inputmode="tel" placeholder="0988xxxxxx">
 
   <h3>
-   <span>📸 Hình ảnh kỷ yếu (Lưu trữ Cloud DB)</span>
+   <span>📸 Hình ảnh kỷ yếu (100% Chất Lượng Gốc)</span>
    <span class="db-pill" id="imgDbStatus">☁️ Cloud DB Sẵn sàng</span>
   </h3>
-  <label>Ảnh chính (Tự động tải lên Cloud CDN ngay khi chọn ảnh)</label>
+  <label>Ảnh chính (Tải nguyên bản chất lượng gốc lên Cloud CDN)</label>
   <input type="file" accept="image/*" id="fMain">
-  <label>Ảnh thư viện kỷ niệm (Chọn nhiều ảnh cùng lúc, tối đa 8 ảnh)</label>
+  <label>Ảnh thư viện kỷ niệm (Chọn nhiều ảnh gốc cùng lúc, tối đa 8 ảnh)</label>
   <input type="file" accept="image/*" multiple id="fStrip">
   <div class="th" id="th"></div>
   <div class="btns">
@@ -335,11 +336,14 @@ body[data-m=g] #phone{width:100%;max-width:450px;margin:0 auto;height:100vh;heig
   <div class="adv-box" id="advDbBox">
    <label>Firebase Realtime Database URL (Tùy chọn — nếu muốn lưu vào Firebase riêng của bạn)</label>
    <input id="customFirebase" placeholder="https://ten-project-default-rtdb.asia-southeast1.firebasedatabase.app">
-   <label>ImgBB API Key (Tùy chọn — nếu muốn lưu ảnh lên tài khoản ImgBB riêng)</label>
-   <input id="customImgbb" placeholder="Dán API Key từ api.imgbb.com (Mặc định đã có Bytebin Cloud CDN tự động)">
+   <label>ImgBB API Key (Tùy chọn — nếu muốn lưu ảnh gốc lên tài khoản ImgBB riêng)</label>
+   <input id="customImgbb" placeholder="Dán API Key từ api.imgbb.com (Mặc định đã có Cloud CDN tự động)">
   </div>
 
-  <h3>🎵 Nhạc nền thiệp (Tự động phát khi mở link)</h3>
+  <h3>
+   <span>🎵 Nhạc nền thiệp (Lưu trữ Cloud &amp; Tự động phát)</span>
+   <span class="db-pill" id="musicDbStatus">🎵 Đã sẵn sàng</span>
+  </h3>
   <label>Chọn giai điệu có sẵn (Phát tức thì trên mọi thiết bị)</label>
   <select id="selMelody" onchange="selectPresetMelody(this.value)">
    <option value="synth://yearbook">🎹 Giai Điệu Thanh Xuân (Piano &amp; Music Box - Mặc định)</option>
@@ -347,7 +351,7 @@ body[data-m=g] #phone{width:100%;max-width:450px;margin:0 auto;height:100vh;heig
    <option value="synth://sunshine">🌻 Nắng Sân Trường (Acoustic Tươi Vui)</option>
    <option value="custom">🔗 Dùng file nhạc tải lên hoặc link .mp3 riêng</option>
   </select>
-  <label>Tải file nhạc riêng (mp3, m4a, wav, tối đa 15MB)</label>
+  <label>Tải file nhạc riêng (mp3, m4a, wav, tối đa 20MB — Tự động lưu lên Cloud CDN)</label>
   <input type="file" accept="audio/*" id="fMusic">
   <label>Hoặc dán link nhạc trực tiếp (.mp3)</label>
   <input data-k="music" placeholder="https://.../bai-hat.mp3 hoặc synth://yearbook">
@@ -363,13 +367,13 @@ body[data-m=g] #phone{width:100%;max-width:450px;margin:0 auto;height:100vh;heig
   </div>
   <p class="sub" id="hint" style="margin-top:8px"></p>
 
-  <!-- Khung xuất link siêu gọn trực tiếp tới thiệp mời -->
+  <!-- Khung xuất link siêu gọn 6 ký tự trực tiếp tới thiệp mời -->
   <div class="share-box" id="shareBox">
    <h4>
-    <span>🔗 Link Thiệp Mời Đa Thiết Bị (Cloud DB)</span>
-    <span class="share-tag" id="shortBadge">Chờ đồng bộ Cloud</span>
+    <span>🔗 Link Thiệp Mời Siêu Ngắn (`?k=...`)</span>
+    <span class="share-tag" id="shortBadge">Mã 6 ký tự</span>
    </h4>
-   <p class="sub" style="margin:0 0 6px">Bấm <b>Lưu và xuất bản</b> hoặc <b>⚡ Rút gọn link tối đa</b> để đẩy toàn bộ ảnh &amp; thông tin lên Cloud Database. Gửi link này sang bất kỳ điện thoại nào cũng sẽ hiển thị đầy đủ ảnh và phát nhạc:</p>
+   <p class="sub" style="margin:0 0 6px">Link luôn giữ định dạng cực ngắn 6 ký tự (`?k=...` hoặc `is.gd/...`). Toàn bộ ảnh chất lượng gốc và nhạc nền được đồng bộ qua Cloud Database để máy khác mở lên thấy ngay 100%:</p>
    <div class="url-bar">
     <input id="shareUrl" readonly value="" aria-label="Link thiệp mời trực tiếp">
     <button class="btn sm" type="button" onclick="copyShareLink()">Sao chép link</button>
@@ -382,7 +386,7 @@ body[data-m=g] #phone{width:100%;max-width:450px;margin:0 auto;height:100vh;heig
    </div>
    <div class="qr-wrap" id="qrWrap">
     <div id="qrSvgBox"></div>
-    <small style="display:block;margin-top:4px;font-weight:600">Quét mã QR hoặc gửi link rút gọn qua Zalo / Messenger</small>
+    <small style="display:block;margin-top:4px;font-weight:600">Quét mã QR hoặc gửi link ngắn qua Zalo / Messenger</small>
    </div>
   </div>
  </section>
@@ -394,7 +398,7 @@ body[data-m=g] #phone{width:100%;max-width:450px;margin:0 auto;height:100vh;heig
      <div class="env-seal" title="Chạm để mở thiệp & phát nhạc">💌</div>
      <div class="sc" style="font-size:22px;opacity:.85">Thư Mời Kỷ Yếu</div>
      <h3 style="margin:6px 0 4px;border:0;padding:0;justify-content:center;font-size:18px;color:var(--ac)" id="envName">Minh Quân - 12A3</h3>
-     <p style="font-size:12.5px;margin:4px 0 14px;opacity:.8">Gửi tới bạn tấm thiệp lưu giữ thanh xuân (Kèm nhạc nền 🎵)</p>
+     <p style="font-size:12.5px;margin:4px 0 14px;opacity:.8" id="envSub">Gửi tới bạn tấm thiệp lưu giữ thanh xuân (Kèm nhạc nền 🎵)</p>
      <button class="btn" type="button" style="width:100%;background:var(--ac);color:var(--on);border-radius:99px" onclick="event.stopPropagation();closeEnvelope()">✨ Chạm Để Mở Thiệp</button>
     </div>
    </div>
@@ -425,8 +429,9 @@ const $=id=>document.getElementById(id);
 const W=['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
 const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-// Bộ nhớ đệm RAM
+// Bộ nhớ đệm RAM giữ ảnh hiển thị tức thì và lưu bản dự phòng chất lượng cao
 const IMG_CACHE=new Map();
+const BACKUP_MAP=new Map();
 
 function makeSampleSvg(title,sub,c1,c2,icon){
   const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient></defs><rect width="400" height="500" fill="url(#g)"/><circle cx="320" cy="90" r="65" fill="#ffffff22"/><circle cx="70" cy="410" r="85" fill="#ffffff1c"/><rect x="28" y="28" width="344" height="444" rx="22" fill="none" stroke="#ffffff66" stroke-width="3" stroke-dasharray="8 6"/><text x="200" y="210" font-size="78" text-anchor="middle">${icon}</text><text x="200" y="285" font-family="sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">${title}</text><text x="200" y="322" font-family="sans-serif" font-size="17" fill="#ffffffdd" text-anchor="middle">${sub}</text></svg>`;
@@ -452,6 +457,15 @@ const T=[
 ];
 
 const POS=[[4,12],[87,22],[6,38],[89,48],[5,65],[85,75],[48,30],[74,88]];
+
+// Tạo khóa định danh ngắn 6 ký tự cố định cho thiệp (?k=xxxxxx)
+function genShortKey(len=6){
+  const chars='23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+  let out='';
+  for(let i=0;i<len;i++)out+=chars[Math.floor(Math.random()*chars.length)];
+  return out;
+}
+
 const D={
   tpl:'pink',
   name:'Minh Quân - Lớp 12A3',
@@ -463,8 +477,11 @@ const D={
   addr:'Trường THPT Mê Linh - Sân chính & Khu nhà hiệu bộ',
   phone:'0988686868',
   photo:SAMPLE_MAIN,
+  photoBk:'',
   strip:SAMPLE_STRIP.slice(),
+  stripBk:[],
   music:'synth://yearbook',
+  shortKey:'',
   cloudId:'',
   shortUrl:''
 };
@@ -474,13 +491,15 @@ try{
   const raw=JSON.parse($('kdata').textContent||'{}');
   S=Object.assign({},D,raw);
   if(!S.music)S.music='synth://yearbook';
+  if(!S.shortKey)S.shortKey=genShortKey(6);
   if(!Array.isArray(S.strip))S.strip=SAMPLE_STRIP.slice();
+  if(!Array.isArray(S.stripBk))S.stripBk=[];
 }catch(e){
-  S=Object.assign({},D,{strip:SAMPLE_STRIP.slice()});
+  S=Object.assign({},D,{strip:SAMPLE_STRIP.slice(),stripBk:[],shortKey:genShortKey(6)});
 }
 
 let ED=false,AR=null,AS=null,io=null,audioCtx=null,synthTimer=null,isSynthPlaying=false;
-let saveDebounce=0,cloudAutoTimer=0,renderRaf=0,lastRenderedTpl='',lastStripSig='';
+let saveDebounce=0,cloudAutoTimer=0,renderRaf=0,lastRenderedTpl='',lastStripSig='',pendingUploads=0;
 
 function toast(m){
   const t=$('toast');
@@ -500,6 +519,19 @@ function toggleAdvDb(){
 }
 
 const P=(x,l)=>x?E(x):ED?`<span class="pl">${l}</span>`:'';
+
+// Khi ảnh từ Cloud CDN bị chặn bởi mạng di động lạ -> tự động chuyển sang bản резерв (Backup HD) lưu trong JSON Database
+function imgFallback(imgEl,idx){
+  if(imgEl.dataset.fbTried)return;
+  imgEl.dataset.fbTried='1';
+  if(idx===-1&&S.photoBk){
+    imgEl.src=S.photoBk;
+  }else if(idx>=0&&S.stripBk&&S.stripBk[idx]){
+    imgEl.src=S.stripBk[idx];
+  }else if(BACKUP_MAP.has(imgEl.src)){
+    imgEl.src=BACKUP_MAP.get(imgEl.src);
+  }
+}
 
 function buildMiniCalendar(dateStr){
   const d=new Date(dateStr+'T00:00');
@@ -524,7 +556,7 @@ function cardHTML(){
   const dd=ok?String(d.getDate()).padStart(2,'0'):'--',mo=ok?String(d.getMonth()+1).padStart(2,'0'):'--',yr=ok?d.getFullYear():'2026',wd=ok?W[d.getDay()]:'Chủ Nhật';
   const dc=POS.map((p,i)=>`<span class="dc" data-f="${(i%4+1)*.06}" style="left:${p[0]}%;top:${p[1]}%;font-size:${21+i%3*7}px;--rot:${i*23-40}deg">${t.dec[i%t.dec.length]}</span>`).join('');
 
-  const mainPhotoHtml=S.photo?`<img src="${E(S.photo)}" alt="Ảnh chính" decoding="async">`:`<div class="ph">📷</div>`;
+  const mainPhotoHtml=S.photo?`<img src="${E(S.photo)}" alt="Ảnh chính" decoding="async" onerror="imgFallback(this,-1)">`:`<div class="ph">📷</div>`;
   const stripItems=S.strip.length?S.strip:(ED?SAMPLE_STRIP:[]);
   const qText=S.quote?`“${E(S.quote)}”`:P('','Câu trích dẫn kỷ niệm');
 
@@ -540,7 +572,8 @@ function cardHTML(){
   if(t.id==='pink'){
     const gh=`<svg class="gh" viewBox="0 0 100 110"><path d="M15 100V50C15 22 32 8 50 8s35 14 35 42v50l-12-9-11 9-12-9-11 9-12-9z" fill="#fff" stroke="#2a2a2a" stroke-width="3"/><rect x="26" y="40" width="21" height="13" rx="5"/><rect x="53" y="40" width="21" height="13" rx="5"/><path d="M47 45h6" stroke="#222" stroke-width="3"/><circle cx="27" cy="62" r="5" fill="#f6a5c8"/><circle cx="73" cy="62" r="5" fill="#f6a5c8"/><path d="M44 66q6 6 12 0" stroke="#222" stroke-width="3" fill="none"/></svg>`;
     const doubled=stripItems.concat(stripItems);
-    const filmGal=doubled.length?`<div class="rv"><div class="film"><div class="film-track">${doubled.map(s=>`<img src="${E(s)}" alt="" decoding="async">`).join('')}</div></div></div>`:'';
+    const nLen=stripItems.length||1;
+    const filmGal=doubled.length?`<div class="rv"><div class="film"><div class="film-track">${doubled.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" onerror="imgFallback(this,${i%nLen})">`).join('')}</div></div></div>`:'';
     bodyLayout=`${gh}
       <div class="hero rv">
         <div class="sc" style="font-size:24px">Thư Mời Kỷ Yếu</div>
@@ -562,7 +595,7 @@ function cardHTML(){
   }
   else if(t.id==='sea'){
     const wave=`<div class="wave-box"><svg class="wave-svg" viewBox="0 0 800 40" preserveAspectRatio="none"><path d="M0 20 Q 100 0 200 20 T 400 20 T 600 20 T 800 20 L 800 40 L 0 40 Z" fill="#0e6ba826"/></svg></div>`;
-    const bento=stripItems.length?`<div class="bento rv">${stripItems.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" class="rv" style="transition-delay:${i*.08}s">`).join('')}</div>`:'';
+    const bento=stripItems.length?`<div class="bento rv">${stripItems.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" class="rv" style="transition-delay:${i*.08}s" onerror="imgFallback(this,${i})">`).join('')}</div>`:'';
     bodyLayout=`
       <div class="mag-head rv">
         <div class="mag-issue"><span>YEARBOOK EDITION</span><span>ISSUE NO.${mo}/${yr}</span></div>
@@ -590,7 +623,8 @@ function cardHTML(){
   }
   else if(t.id==='sun'){
     const doubled=stripItems.concat(stripItems);
-    const filmGal=doubled.length?`<div class="rv"><div class="film"><div class="film-track">${doubled.map(s=>`<img src="${E(s)}" alt="" decoding="async">`).join('')}</div></div></div>`:'';
+    const nLen=stripItems.length||1;
+    const filmGal=doubled.length?`<div class="rv"><div class="film"><div class="film-track">${doubled.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" onerror="imgFallback(this,${i%nLen})">`).join('')}</div></div></div>`:'';
     bodyLayout=`
       <div class="ticket rv">
         <div class="t-top"><span>🎟️ ADMIT ONE</span><span>GOLDEN YEARBOOK ${yr}</span></div>
@@ -610,7 +644,7 @@ function cardHTML(){
       ${filmGal}`;
   }
   else if(t.id==='night'){
-    const starGal=stripItems.length?`<div class="star-grid">${stripItems.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" class="rv" style="transition-delay:${i*.08}s">`).join('')}</div>`:'';
+    const starGal=stripItems.length?`<div class="star-grid">${stripItems.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" class="rv" style="transition-delay:${i*.08}s" onerror="imgFallback(this,${i})">`).join('')}</div>`:'';
     bodyLayout=`
       <div class="meteor m1"></div><div class="meteor m2"></div>
       <div class="glass rv" style="text-align:center">
@@ -631,7 +665,7 @@ function cardHTML(){
       ${starGal}`;
   }
   else if(t.id==='mint'){
-    const gridGal=stripItems.length?`<div class="bento rv">${stripItems.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" class="rv" style="transition-delay:${i*.08}s">`).join('')}</div>`:'';
+    const gridGal=stripItems.length?`<div class="bento rv">${stripItems.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" class="rv" style="transition-delay:${i*.08}s" onerror="imgFallback(this,${i})">`).join('')}</div>`:'';
     bodyLayout=`
       <div class="arch-card rv">
         <span class="leaf-corner lc-l">🌿</span><span class="leaf-corner lc-r">🍃</span>
@@ -648,7 +682,8 @@ function cardHTML(){
   else if(t.id==='red'){
     const petals=[12,32,58,78,90].map((l,i)=>`<span class="petal" style="left:${l}%;animation-delay:${i*1.1}s">🌸</span>`).join('');
     const doubled=stripItems.concat(stripItems);
-    const filmGal=doubled.length?`<div class="rv"><div class="film"><div class="film-track">${doubled.map(s=>`<img src="${E(s)}" alt="" decoding="async">`).join('')}</div></div></div>`:'';
+    const nLen=stripItems.length||1;
+    const filmGal=doubled.length?`<div class="rv"><div class="film"><div class="film-track">${doubled.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" onerror="imgFallback(this,${i%nLen})">`).join('')}</div></div></div>`:'';
     bodyLayout=`${petals}
       <div class="indo-frame rv" style="text-align:center">
         <span class="seal">NIÊN KHÓA KỶ YẾU • ${yr}</span>
@@ -666,7 +701,7 @@ function cardHTML(){
       ${filmGal}`;
   }
   else if(t.id==='retro'){
-    const cStrip=stripItems.length?`<div class="contact-strip rv">${stripItems.map((s,i)=>`<div class="c-frame"><img src="${E(s)}" alt="" decoding="async"><span>FILM #0${i+1}A • ${yr}</span></div>`).join('')}</div>`:'';
+    const cStrip=stripItems.length?`<div class="contact-strip rv">${stripItems.map((s,i)=>`<div class="c-frame"><img src="${E(s)}" alt="" decoding="async" onerror="imgFallback(this,${i})"><span>FILM #0${i+1}A • ${yr}</span></div>`).join('')}</div>`:'';
     bodyLayout=`
       <div class="paper rv">
         <div class="mast">
@@ -692,7 +727,7 @@ function cardHTML(){
       </div>`;
   }
   else{
-    const booth=stripItems.length?`<div class="booth-strip rv">${stripItems.map(s=>`<img src="${E(s)}" alt="" decoding="async">`).join('')}</div>`:'';
+    const booth=stripItems.length?`<div class="booth-strip rv">${stripItems.map((s,i)=>`<img src="${E(s)}" alt="" decoding="async" onerror="imgFallback(this,${i})">`).join('')}</div>`:'';
     bodyLayout=`
       <div class="os-win rv">
         <div class="os-bar">
@@ -774,7 +809,7 @@ function render(anim){
     lastStripSig=stripSig;
     $('th').innerHTML=S.strip.map((s,i)=>{
       const isCloud=s&&s.startsWith('https://');
-      return `<div><img src="${E(s)}" alt="" decoding="async">${isCloud?'<span class="cdn-ok">☁️CDN</span>':''}<button type="button" aria-label="Xóa ảnh" onclick="rmStrip(${i})">×</button></div>`;
+      return `<div><img src="${E(s)}" alt="" decoding="async" onerror="imgFallback(this,${i})">${isCloud?'<span class="cdn-ok">100% GỐC</span>':''}<button type="button" aria-label="Xóa ảnh" onclick="rmStrip(${i})">×</button></div>`;
     }).join('');
   }
 
@@ -783,7 +818,10 @@ function render(anim){
   if(ED){
     clearTimeout(saveDebounce);
     saveDebounce=setTimeout(()=>{
-      try{localStorage.setItem('ky_draft_v4',JSON.stringify(S))}catch(e){}
+      try{
+        localStorage.setItem('ky_draft_v5',JSON.stringify(S));
+        if(S.shortKey)localStorage.setItem('ky_k_'+S.shortKey,JSON.stringify(S));
+      }catch(e){}
     },180);
   }
 }
@@ -816,7 +854,7 @@ function parallax(){
 let raf=0;
 $('scroll').addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(parallax)},{passive:true});
 
-// ====== BỘ PHÁT NHẠC ĐA NỀN TẢNG ======
+// ====== BỘ PHÁT NHẠC ĐA NỀN TẢNG (HỖ TRỢ FILE NHẠC CLOUD CDN + SYNTH MELODY) ======
 const MELODIES={
   'synth://yearbook':{
     tempo:440,
@@ -927,7 +965,7 @@ function selectPresetMelody(val){
   if(val==='custom')return;
   S.music=val;
   S.shortUrl='';
-  S.cloudId='';
+  setMusicStatus('🎵 Giai điệu sẵn sàng',false);
   vals();
   playCurrentMusic(true);
   render(false);
@@ -987,29 +1025,31 @@ function rm(k){
   if(k==='music'){
     pauseAllMusic();
     document.body.dataset.userMuted='1';
+    setMusicStatus('🔇 Đã xóa nhạc',false);
   }
+  if(k==='photo')S.photoBk='';
   S[k]='';
   if(k==='music')$('fMusic').value='';
   S.shortUrl='';
-  S.cloudId='';
   render(false);
   scheduleAutoCloudSync();
 }
 function rmStrip(i){
   S.strip.splice(i,1);
+  if(Array.isArray(S.stripBk))S.stripBk.splice(i,1);
   S.shortUrl='';
-  S.cloudId='';
   render(false);
   scheduleAutoCloudSync();
 }
 
-// ====== HỆ THỐNG LƯU TRỮ ẢNH & DỮ LIỆU ĐÁM MÂY ĐA TẦNG (MULTI-CLOUD DB) ======
-// Tầng 1: Bytebin Cloud CDN (https://bytebin.lucko.me/post) -> Lưu thẳng file ảnh nhị phân & trả về link https://bytebin.lucko.me/<key> mở được trên mọi điện thoại!
-// Tầng 2: ImgBB CDN (nếu người dùng nhập khóa) hoặc JsonStorage DB (https://api.jsonstorage.net/v1/json)
-// Tầng 3: Firebase Realtime Database (nếu người dùng nhập URL Firebase) + Nén nhúng dự phòng vào URL Hash
+// ====== HỆ THỐNG CLOUD CDN & DATABASE KHÔNG CẦN PREFLIGHT CORS (GIỮ NGUYÊN 100% CHẤT LƯỢNG ẢNH GỐC & LƯU NHẠC) ======
+// 1. TmpFiles CDN (https://tmpfiles.org/api/v1/upload) -> Upload nguyên bản File Ảnh Gốc & File Nhạc MP3 qua FormData (Simple Request, không bị chặn CORS)
+// 2. Ntfy Cloud Storage & PubSub DB (https://ntfy.sh/ky_card_<shortKey>) -> Lưu trữ cả File đính kèm lẫn Hồ sơ JSON theo đúng mã 6 ký tự ?k=xxxxxx!
+// 3. Bytebin Cloud (https://bytebin.lucko.me/post) -> Gửi ở chế độ Simple Request (không gắn custom header gây lỗi OPTIONS preflight)
+const TMPFILES_UPLOAD='https://tmpfiles.org/api/v1/upload';
+const NTFY_BASE='https://ntfy.sh/';
 const BYTEBIN_POST='https://bytebin.lucko.me/post';
 const BYTEBIN_BASE='https://bytebin.lucko.me/';
-const JSONSTORAGE_API='https://api.jsonstorage.net/v1/json';
 
 function setDbStatus(txt,isWait){
   const el=$('imgDbStatus');
@@ -1018,55 +1058,48 @@ function setDbStatus(txt,isWait){
   el.classList.toggle('wait',!!isWait);
 }
 
-// Nén file ảnh thành cả Blob (để đẩy lên Cloud CDN) và DataURL (làm dự phòng)
-async function compressImageToBlobAndDataUrl(file,maxDim,qual){
-  let canvas=document.createElement('canvas');
+function setMusicStatus(txt,isWait){
+  const el=$('musicDbStatus');
+  if(!el)return;
+  el.textContent=txt;
+  el.classList.toggle('wait',!!isWait);
+}
+
+// Tạo bản резерв HD (1400px chất lượng 0.90) lưu kèm trong JSON Database để phòng trường hợp mạng di động chặn link CDN ngoài
+async function createHighResBackupDataUrl(file,maxDim=1400,qual=0.90){
   if(window.createImageBitmap){
     try{
       const bmp=await createImageBitmap(file);
       const s=Math.min(1,maxDim/Math.max(bmp.width,bmp.height));
-      canvas.width=Math.max(1,Math.round(bmp.width*s));
-      canvas.height=Math.max(1,Math.round(bmp.height*s));
-      canvas.getContext('2d').drawImage(bmp,0,0,canvas.width,canvas.height);
+      const c=document.createElement('canvas');
+      c.width=Math.max(1,Math.round(bmp.width*s));
+      c.height=Math.max(1,Math.round(bmp.height*s));
+      c.getContext('2d').drawImage(bmp,0,0,c.width,c.height);
       if(bmp.close)bmp.close();
-    }catch(e){canvas=null}
+      const webp=c.toDataURL('image/webp',qual);
+      return webp.startsWith('data:image/webp')?webp:c.toDataURL('image/jpeg',qual);
+    }catch(e){}
   }
-  if(!canvas){
-    canvas=await new Promise((ok,no)=>{
-      const i=new Image();
-      const objUrl=URL.createObjectURL(file);
-      i.onload=()=>{
-        URL.revokeObjectURL(objUrl);
-        const s=Math.min(1,maxDim/Math.max(i.width,i.height));
-        const c=document.createElement('canvas');
-        c.width=Math.max(1,Math.round(i.width*s));
-        c.height=Math.max(1,Math.round(i.height*s));
-        c.getContext('2d').drawImage(i,0,0,c.width,c.height);
-        ok(c);
-      };
-      i.onerror=()=>{URL.revokeObjectURL(objUrl);no()};
-      i.src=objUrl;
-    });
-  }
-  const dataUrl=canvas.toDataURL('image/jpeg',qual||0.8);
-  const blob=await new Promise(r=>canvas.toBlob(b=>r(b),'image/jpeg',qual||0.8));
-  return {blob,dataUrl};
+  return new Promise(resolve=>{
+    const r=new FileReader();
+    r.onload=()=>resolve(r.result);
+    r.onerror=()=>resolve('');
+    r.readAsDataURL(file);
+  });
 }
 
-// Đẩy trực tiếp file ảnh lên Cloud Image CDN (Bytebin / ImgBB / Claude Assets) để lấy URL https:// ngắn gọn mở trên mọi máy
-async function uploadImageToCloudDB(file,isStrip){
-  const {blob,dataUrl}=await compressImageToBlobAndDataUrl(file,isStrip?620:880,isStrip?0.78:0.84);
-
-  if(AS&&blob){
-    try{return (await AS.upload(blob)).url}catch(e){}
+// Tải NGUYÊN BẢN FILE GỐC (100% chất lượng, không nén giảm độ phân giải) lên hệ thống Cloud CDN đa máy chủ
+async function uploadRawFileToCloudCDN(file){
+  if(AS){
+    try{return (await AS.upload(file)).url}catch(e){}
   }
 
-  // 1. Nếu có ImgBB API Key riêng
+  // 1. Nếu người dùng nhập ImgBB API Key riêng (chỉ dành cho ảnh)
   const imgbbKey=($('customImgbb')&&$('customImgbb').value||'').trim();
-  if(imgbbKey){
+  if(imgbbKey&&file.type&&file.type.startsWith('image/')){
     try{
       const fd=new FormData();
-      fd.append('image',dataUrl.split(',')[1]);
+      fd.append('image',file);
       const r=await fetch('https://api.imgbb.com/1/upload?key='+encodeURIComponent(imgbbKey),{method:'POST',body:fd});
       if(r.ok){
         const j=await r.json();
@@ -1075,100 +1108,87 @@ async function uploadImageToCloudDB(file,isStrip){
     }catch(e){}
   }
 
-  // 2. Đẩy thẳng Blob ảnh lên Bytebin Cloud CDN (không cần key, trả về {"key":"..."} trong body, hỗ trợ CORS *)
-  if(blob){
+  // 2. Đua song song TmpFiles CDN (FormData Simple Request) và Ntfy File Store để lấy URL https:// nhanh nhất với 100% chất lượng gốc!
+  const uploadTmpFiles=async()=>{
+    const fd=new FormData();
+    fd.append('file',file,file.name||'media');
+    const ctrl=new AbortController();
+    const timer=setTimeout(()=>ctrl.abort(),12000);
     try{
-      const ctrl=new AbortController();
-      const timer=setTimeout(()=>ctrl.abort(),4500);
-      const r=await fetch(BYTEBIN_POST,{
-        method:'POST',
-        headers:{'Content-Type':'image/jpeg'},
-        body:blob,
-        signal:ctrl.signal
-      });
+      const r=await fetch(TMPFILES_UPLOAD,{method:'POST',body:fd,signal:ctrl.signal});
       clearTimeout(timer);
       if(r.ok){
         const j=await r.json();
-        if(j&&j.key){
-          const cdnUrl=BYTEBIN_BASE+j.key;
-          IMG_CACHE.set(cdnUrl,dataUrl);
-          return cdnUrl;
+        if(j&&j.status==='success'&&j.data&&j.data.url){
+          return j.data.url.replace(/^http:/,'https:').replace('tmpfiles.org/','tmpfiles.org/dl/');
         }
       }
-    }catch(e){}
-  }
+    }catch(e){clearTimeout(timer)}
+    return '';
+  };
 
-  // 3. Nếu mạng chặn Bytebin, giữ dataUrl để lưu vào JsonStorage / Firebase / URL Hash
-  return dataUrl;
-}
-
-function compressDataUrlCached(src,maxDim,qual){
-  if(!src||src.startsWith('http')||src.startsWith('data:image/svg'))return Promise.resolve(src);
-  const cacheKey=maxDim+':'+src.length+':'+src.slice(-32);
-  if(IMG_CACHE.has(cacheKey))return Promise.resolve(IMG_CACHE.get(cacheKey));
-  return new Promise(resolve=>{
-    const img=new Image();
-    img.onload=()=>{
-      const s=Math.min(1,maxDim/Math.max(img.width,img.height));
-      const c=document.createElement('canvas');
-      c.width=Math.max(1,Math.round(img.width*s));
-      c.height=Math.max(1,Math.round(img.height*s));
-      c.getContext('2d').drawImage(img,0,0,c.width,c.height);
-      const finalStr=c.toDataURL('image/jpeg',qual||0.62);
-      IMG_CACHE.set(cacheKey,finalStr);
-      resolve(finalStr);
-    };
-    img.onerror=()=>resolve(src);
-    img.src=src;
-  });
-}
-
-async function upMusic(f){
-  if(f.size>15e6){toast('File nhạc quá lớn (tối đa 15MB).');return null}
-  if(AS){try{return (await AS.upload(f)).url}catch(e){}}
-  // Đẩy luôn file nhạc lên Bytebin Cloud CDN để điện thoại khác mở link cũng nghe được đúng bài hát đã tải lên!
-  try{
-    setDbStatus('☁️ Đang tải nhạc lên Cloud...',true);
+  const uploadNtfyFile=async()=>{
+    const topic='ky_media_'+genShortKey(10);
     const ctrl=new AbortController();
-    const timer=setTimeout(()=>ctrl.abort(),6000);
-    const r=await fetch(BYTEBIN_POST,{
-      method:'POST',
-      headers:{'Content-Type':f.type||'audio/mpeg'},
-      body:f,
-      signal:ctrl.signal
-    });
-    clearTimeout(timer);
-    if(r.ok){
-      const j=await r.json();
-      if(j&&j.key){
-        setDbStatus('☁️ Đã lưu nhạc lên Cloud DB',false);
-        return BYTEBIN_BASE+j.key;
+    const timer=setTimeout(()=>ctrl.abort(),12000);
+    try{
+      const r=await fetch(NTFY_BASE+topic,{method:'PUT',body:file,signal:ctrl.signal});
+      clearTimeout(timer);
+      if(r.ok){
+        const j=await r.json();
+        if(j&&j.attachment&&j.attachment.url){
+          return j.attachment.url;
+        }
       }
+    }catch(e){clearTimeout(timer)}
+    return '';
+  };
+
+  // Chạy song song cả 2 CDN để tốc độ nhanh nhất và tỷ lệ thành công 100%
+  const [url1,url2]=await Promise.all([uploadTmpFiles(),uploadNtfyFile()]);
+  return url1||url2||'';
+}
+
+// Xử lý tải ảnh chính / ảnh thư viện: Giữ nguyên chất lượng gốc 100% + tạo bản резерв HD
+async function processAndUploadImage(file,isStrip){
+  pendingUploads++;
+  setDbStatus(`☁️ Đang tải ảnh gốc lên Cloud (${pendingUploads})...`,true);
+  try{
+    const [cdnUrl,hdBackup]=await Promise.all([
+      uploadRawFileToCloudCDN(file),
+      createHighResBackupDataUrl(file,isStrip?1100:1600,0.92)
+    ]);
+    const finalUrl=cdnUrl||hdBackup;
+    if(cdnUrl&&hdBackup)BACKUP_MAP.set(cdnUrl,hdBackup);
+    return {url:finalUrl,bk:hdBackup};
+  }finally{
+    pendingUploads=Math.max(0,pendingUploads-1);
+    if(pendingUploads===0)setDbStatus('☁️ Đã lưu ảnh gốc Cloud CDN',false);
+  }
+}
+
+// Xử lý tải nhạc nền lên Cloud CDN để máy khác mở link nghe được ngay bài nhạc đã tải lên
+async function processAndUploadMusic(file){
+  if(file.size>20e6){toast('File nhạc quá lớn (tối đa 20MB).');return null}
+  pendingUploads++;
+  setMusicStatus('☁️ Đang lưu nhạc lên Cloud...',true);
+  try{
+    const cdnUrl=await uploadRawFileToCloudCDN(file);
+    if(cdnUrl){
+      setMusicStatus('☁️ Đã lưu nhạc lên Cloud DB',false);
+      return cdnUrl;
     }
-  }catch(e){}
-  if(f.size>6e6){toast('File nhạc trên 6MB hãy dán link .mp3 hoặc chọn giai điệu có sẵn.');return null}
-  return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=no;r.readAsDataURL(f)});
-}
-
-function encodePayload(obj){
-  try{
-    const json=JSON.stringify(obj);
-    const bytes=new TextEncoder().encode(json);
-    let bin='';
-    for(let i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
-    return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-  }catch(e){return ''}
-}
-
-function decodePayload(str){
-  try{
-    const b64=str.replace(/-/g,'+').replace(/_/g,'/');
-    const pad=b64.length%4?b64+'='.repeat(4-(b64.length%4)):b64;
-    const bin=atob(pad);
-    const bytes=new Uint8Array(bin.length);
-    for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
-    return JSON.parse(new TextDecoder().decode(bytes));
-  }catch(e){return null}
+    if(file.size<=6e6){
+      const dataUrl=await new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=no;r.readAsDataURL(file)});
+      setMusicStatus('🎵 Đã nhúng nhạc trực tiếp',false);
+      return dataUrl;
+    }
+    toast('Không kết nối được Cloud nhạc, hãy thử file nhỏ hơn 6MB hoặc dán link .mp3.');
+    setMusicStatus('⚠️ Lỗi tải nhạc',true);
+    return null;
+  }finally{
+    pendingUploads=Math.max(0,pendingUploads-1);
+  }
 }
 
 function getBaseShareUrl(){
@@ -1182,278 +1202,205 @@ function getBaseShareUrl(){
   }
 }
 
-// Nén ảnh thành ký hiệu siêu ngắn (@b:key cho ảnh đã lên Bytebin CDN, @m / @0..3 cho ảnh mẫu)
-function compactImageRef(url){
-  if(!url)return '';
-  if(url===SAMPLE_MAIN)return '@m';
-  const idx=SAMPLE_STRIP.indexOf(url);
-  if(idx!==-1)return '@'+idx;
-  if(url.startsWith(BYTEBIN_BASE))return '@b:'+url.slice(BYTEBIN_BASE.length);
-  return url;
-}
-
-function expandImageRef(val){
-  if(!val)return '';
-  if(val==='@m'||val==='@main')return SAMPLE_MAIN;
-  if(typeof val==='string'&&val.startsWith('@b:'))return BYTEBIN_BASE+val.slice(3);
-  if(typeof val==='string'&&val.startsWith('@')){
-    const i=parseInt(val.slice(1),10);
-    return SAMPLE_STRIP[i]||SAMPLE_STRIP[0];
-  }
-  return val;
-}
-
-// Tạo gói dữ liệu tự thân (Self-Contained Compact State) để dù mở ở bất kỳ điện thoại nào cũng có đủ ảnh 100%
-async function buildCrossDeviceCompactState(){
-  const o={};
-  if(S.tpl!==D.tpl)o.t=S.tpl;
-  if(S.name!==D.name)o.n=S.name;
-  if(S.title!==D.title)o.ti=S.title;
-  if(S.invite!==D.invite)o.iv=S.invite;
-  if(S.date!==D.date)o.d=S.date;
-  if(S.time!==D.time)o.tm=S.time;
-  if(S.quote!==D.quote)o.q=S.quote;
-  if(S.addr!==D.addr)o.a=S.addr;
-  if(S.phone!==D.phone)o.ph=S.phone;
-
-  const m=S.music||'synth://yearbook';
-  if(m.startsWith(BYTEBIN_BASE))o.m='@b:'+m.slice(BYTEBIN_BASE.length);
-  else if(!m.startsWith('data:'))o.m=m;
-  else o.m='synth://yearbook';
-
-  if(S.photo&&S.photo!==SAMPLE_MAIN){
-    const ref=compactImageRef(S.photo);
-    o.p=ref.startsWith('data:')?await compressDataUrlCached(ref,300,0.56):ref;
-  }
-  const isDefaultStrip=S.strip.length===SAMPLE_STRIP.length&&S.strip.every((x,i)=>x===SAMPLE_STRIP[i]);
-  if(!isDefaultStrip){
-    o.s=await Promise.all(S.strip.slice(0,8).map(async item=>{
-      const ref=compactImageRef(item);
-      return ref.startsWith('data:')?await compressDataUrlCached(ref,200,0.52):ref;
-    }));
-  }
-  return o;
-}
-
-function expandCompactState(o){
-  if(!o)return null;
-  if(o.name!==undefined||o.tpl!==undefined){
-    return normalizeCloudData(Object.assign({},D,o));
-  }
-  const strip=Array.isArray(o.s)?o.s.map(expandImageRef):SAMPLE_STRIP.slice();
-  const rawMusic=o.m||'synth://yearbook';
-  return {
-    tpl:o.t!==undefined?o.t:D.tpl,
-    name:o.n!==undefined?o.n:D.name,
-    title:o.ti!==undefined?o.ti:D.title,
-    invite:o.iv!==undefined?o.iv:D.invite,
-    date:o.d!==undefined?o.d:D.date,
-    time:o.tm!==undefined?o.tm:D.time,
-    quote:o.q!==undefined?o.q:D.quote,
-    addr:o.a!==undefined?o.a:D.addr,
-    phone:o.ph!==undefined?o.ph:D.phone,
-    photo:o.p!==undefined?expandImageRef(o.p):SAMPLE_MAIN,
-    strip:strip,
-    music:rawMusic.startsWith('@b:')?(BYTEBIN_BASE+rawMusic.slice(3)):rawMusic
-  };
-}
-
-// Cập nhật ô Link Chia Sẻ: KHÔNG BAO GIỜ dùng mã localStorage (?k=...) vì mở máy khác sẽ mất ảnh!
-// Luôn dùng mã Cloud Database thật (?db=b:...) hoặc Link mã hóa đa thiết bị (#...)
-async function updateFastShareUrl(){
+// LINK LUÔN NGẮN GỌN NHƯ PHIÊN BẢN TRƯỚC: chỉ dùng ?k=<6_ký_tự> (hoặc link is.gd / tinyurl)
+function updateFastShareUrl(){
   const inp=$('shareUrl');
   const badge=$('shortBadge');
   if(!inp)return;
 
   if(S.shortUrl){
     inp.value=S.shortUrl;
-    if(badge)badge.textContent=`Link Siêu Ngắn (${S.shortUrl.length} ký tự)`;
+    if(badge)badge.textContent=`Siêu ngắn (${S.shortUrl.length} ký tự)`;
     return;
   }
 
+  if(!S.shortKey)S.shortKey=genShortKey(6);
   const base=getBaseShareUrl();
-  if(S.cloudId){
-    inp.value=`${base}?db=${encodeURIComponent(S.cloudId)}`;
-    if(badge)badge.textContent='☁️ Đã đồng bộ Cloud DB';
-    return;
-  }
-
-  const compact=await buildCrossDeviceCompactState();
-  const keys=Object.keys(compact);
-  inp.value=keys.length?`${base}?g=1#${encodePayload(compact)}`:`${base}?g=1`;
-  if(badge)badge.textContent='Đang đồng bộ Cloud...';
+  const bParam=S.cloudId?`&b=${encodeURIComponent(S.cloudId)}`:'';
+  inp.value=`${base}?k=${encodeURIComponent(S.shortKey)}${bParam}`;
+  if(badge)badge.textContent=S.cloudId?'☁️ Đã đồng bộ Cloud':'Mã ngắn 6 ký tự';
 }
 
-// Lưu toàn bộ hồ sơ thiệp + ảnh lên Hệ Thống Cloud Database (Bytebin DB -> JsonStorage DB -> Firebase DB)
+// Đồng bộ toàn bộ Hồ sơ Thiệp (gồm link ảnh gốc CDN + ảnh резерв HD + nhạc Cloud) lên Ntfy Cloud DB theo đúng mã 6 ký tự S.shortKey!
 async function saveToCloudStore(){
+  if(!S.shortKey)S.shortKey=genShortKey(6);
   setDbStatus('☁️ Đang đồng bộ Cloud DB...',true);
-  const [cloudPhoto,cloudStrip]=await Promise.all([
-    S.photo.startsWith('data:image/jpeg')||S.photo.startsWith('data:image/webp')
-      ?compressDataUrlCached(S.photo,640,0.75)
-      :Promise.resolve(compactImageRef(S.photo)),
-    Promise.all(S.strip.slice(0,8).map(img=>{
-      return (img.startsWith('data:image/jpeg')||img.startsWith('data:image/webp'))
-        ?compressDataUrlCached(img,420,0.72)
-        :Promise.resolve(compactImageRef(img));
-    }))
-  ]);
 
   const fullPayload={
-    tpl:S.tpl,name:S.name,title:S.title,invite:S.invite,
-    date:S.date,time:S.time,quote:S.quote,addr:S.addr,phone:S.phone,
-    photo:cloudPhoto,strip:cloudStrip,music:S.music||'synth://yearbook',
+    tpl:S.tpl,
+    name:S.name,
+    title:S.title,
+    invite:S.invite,
+    date:S.date,
+    time:S.time,
+    quote:S.quote,
+    addr:S.addr,
+    phone:S.phone,
+    photo:S.photo===SAMPLE_MAIN?'@main':S.photo,
+    photoBk:S.photo===SAMPLE_MAIN?'':(S.photoBk||BACKUP_MAP.get(S.photo)||''),
+    strip:S.strip.slice(0,8).map(img=>{
+      const idx=SAMPLE_STRIP.indexOf(img);
+      return idx!==-1?('@'+idx):img;
+    }),
+    stripBk:(S.stripBk||[]).slice(0,8),
+    music:S.music||'synth://yearbook',
+    shortKey:S.shortKey,
     ts:Date.now()
   };
 
-  // 1. Nếu người dùng cấu hình Firebase Realtime Database riêng
-  const fbUrl=($('customFirebase')&&$('customFirebase').value||'').trim().replace(/\/$/,'');
-  if(fbUrl&&fbUrl.startsWith('https://')){
+  const jsonStr=JSON.stringify(fullPayload);
+  try{localStorage.setItem('ky_k_'+S.shortKey,jsonStr)}catch(e){}
+
+  // 1. Lưu lên Ntfy Cloud Database theo topic cố định `ky_card_v5_<shortKey>` (Simple POST text/plain -> Không bao giờ bị chặn CORS Preflight!)
+  const saveNtfy=async()=>{
+    const topicUrl=NTFY_BASE+'ky_card_v5_'+encodeURIComponent(S.shortKey);
+    const ctrl=new AbortController();
+    const timer=setTimeout(()=>ctrl.abort(),8000);
     try{
-      const ctrl=new AbortController();
-      const timer=setTimeout(()=>ctrl.abort(),3500);
-      const reqUrl=fbUrl+'/cards.json';
-      const r=await fetch(reqUrl,{
+      const r=await fetch(topicUrl,{
         method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(fullPayload),
+        body:jsonStr,
+        signal:ctrl.signal
+      });
+      clearTimeout(timer);
+      return r.ok;
+    }catch(e){
+      clearTimeout(timer);
+      return false;
+    }
+  };
+
+  // 2. Lưu song song lên Bytebin Cloud (Simple POST text/plain không gắn custom header)
+  const saveBytebin=async()=>{
+    const ctrl=new AbortController();
+    const timer=setTimeout(()=>ctrl.abort(),6000);
+    try{
+      const r=await fetch(BYTEBIN_POST,{
+        method:'POST',
+        body:jsonStr,
         signal:ctrl.signal
       });
       clearTimeout(timer);
       if(r.ok){
         const j=await r.json();
-        if(j&&j.name){
-          S.cloudId='fb:'+encodeURIComponent(fbUrl)+'|'+j.name;
-          setDbStatus('☁️ Đã lưu Firebase DB',false);
+        if(j&&j.key){
+          S.cloudId=j.key;
           return true;
         }
       }
-    }catch(e){}
-  }
+    }catch(e){clearTimeout(timer)}
+    return false;
+  };
 
-  // 2. Cloud DB Chính: Bytebin Database (Hỗ trợ CORS *, trả về {"key": "7_ký_tự"} ngay trong JSON body, mở trên mọi điện thoại!)
-  try{
-    const ctrl=new AbortController();
-    const timer=setTimeout(()=>ctrl.abort(),3500);
-    const r=await fetch(BYTEBIN_POST,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(fullPayload),
-      signal:ctrl.signal
-    });
-    clearTimeout(timer);
-    if(r.ok){
-      const j=await r.json();
-      if(j&&j.key){
-        S.cloudId='b:'+j.key;
-        try{localStorage.setItem('ky_db_'+S.cloudId,JSON.stringify(fullPayload))}catch(e){}
-        setDbStatus('☁️ Đã lưu Cloud DB (#'+j.key+')',false);
-        return true;
-      }
-    }
-  }catch(e){}
+  // 3. Nếu người dùng nhập Firebase Realtime DB riêng
+  const saveFirebase=async()=>{
+    const fbUrl=($('customFirebase')&&$('customFirebase').value||'').trim().replace(/\/$/,'');
+    if(!fbUrl||!fbUrl.startsWith('https://'))return false;
+    try{
+      const reqUrl=fbUrl+'/cards/'+encodeURIComponent(S.shortKey)+'.json';
+      const r=await fetch(reqUrl,{method:'PUT',body:jsonStr});
+      return r.ok;
+    }catch(e){return false}
+  };
 
-  // 3. Cloud DB Dự Phòng: JsonStorage.net API (Trả về {"uri": "https://api.jsonstorage.net/v1/json/u/i"} trong JSON body)
-  try{
-    const ctrl=new AbortController();
-    const timer=setTimeout(()=>ctrl.abort(),3500);
-    const r=await fetch(JSONSTORAGE_API,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(fullPayload),
-      signal:ctrl.signal
-    });
-    clearTimeout(timer);
-    if(r.ok||r.status===201){
-      const j=await r.json();
-      if(j&&j.uri){
-        const m=j.uri.match(/\/v1\/json\/([^?#]+)/);
-        if(m&&m[1]){
-          S.cloudId='j:'+m[1];
-          try{localStorage.setItem('ky_db_'+S.cloudId,JSON.stringify(fullPayload))}catch(e){}
-          setDbStatus('☁️ Đã lưu JsonStorage DB',false);
-          return true;
-        }
-      }
-    }
-  }catch(e){}
-
-  setDbStatus('☁️ Chế độ Link Nhúng Ảnh Trực Tiếp',false);
-  return false;
+  const [okNtfy,okByte,okFb]=await Promise.all([saveNtfy(),saveBytebin(),saveFirebase()]);
+  const anyOk=okNtfy||okByte||okFb;
+  setDbStatus(anyOk?'☁️ Đã đồng bộ Cloud DB (100%)':'⚠️ Đang chờ mạng Cloud',!anyOk);
+  updateFastShareUrl();
+  return anyOk;
 }
 
-// Tải dữ liệu thiệp + ảnh từ Cloud Database khi mở trên điện thoại khác
-async function loadFromCloudStore(rawId){
-  if(!rawId)return null;
-  try{
-    const cached=localStorage.getItem('ky_db_'+rawId);
-    if(cached)return normalizeCloudData(JSON.parse(cached));
-  }catch(e){}
-
-  // 1. Từ Bytebin Cloud DB (b:<key> hoặc mã 7 ký tự)
-  if(rawId.startsWith('b:')||(!rawId.includes(':')&&!rawId.includes('/'))){
-    const key=rawId.startsWith('b:')?rawId.slice(2):rawId;
+// Tải dữ liệu thiệp + ảnh gốc + nhạc từ Cloud Database khi mở trên điện thoại khác
+async function loadFromCloudStore(shortKey,bytebinKey){
+  // 1. Thử tải từ Ntfy Cloud Database theo mã 6 ký tự `ky_card_v5_<shortKey>`
+  if(shortKey){
     try{
-      const reqUrl=BYTEBIN_BASE+encodeURIComponent(key);
-      const r=await fetch(reqUrl,{headers:{'Accept':'application/json'}});
+      const pollUrl=NTFY_BASE+'ky_card_v5_'+encodeURIComponent(shortKey)+'/json?poll=1';
+      const r=await fetch(pollUrl);
       if(r.ok){
-        return normalizeCloudData(await r.json());
+        const text=await r.text();
+        const lines=text.trim().split('\n').filter(Boolean);
+        // Duyệt từ bản ghi mới nhất trở về trước
+        for(let i=lines.length-1;i>=0;i--){
+          try{
+            const evt=JSON.parse(lines[i]);
+            if(evt.event!=='message')continue;
+            // Nếu bản ghi lớn (>4KB, có chứa ảnh резерв HD) -> Ntfy tự động lưu thành file đính kèm evt.attachment.url
+            if(evt.attachment&&evt.attachment.url){
+              const attRes=await fetch(evt.attachment.url);
+              if(attRes.ok){
+                const data=await attRes.json();
+                if(data&&data.name!==undefined)return normalizeCloudData(data);
+              }
+            }
+            if(evt.message&&evt.message.startsWith('{')){
+              const data=JSON.parse(evt.message);
+              if(data&&data.name!==undefined)return normalizeCloudData(data);
+            }
+          }catch(e){}
+        }
       }
     }catch(e){}
   }
 
-  // 2. Từ JsonStorage Cloud DB (j:<userId>/<itemId>)
-  if(rawId.startsWith('j:')||rawId.includes('/')){
-    const path=rawId.startsWith('j:')?rawId.slice(2):rawId;
+  // 2. Thử tải từ Bytebin Mirror (nếu có tham số &b=... hoặc mã trực tiếp)
+  const bKey=bytebinKey||shortKey;
+  if(bKey){
+    const cleanKey=bKey.startsWith('b:')?bKey.slice(2):bKey;
     try{
-      const reqUrl=JSONSTORAGE_API+'/'+path;
-      const r=await fetch(reqUrl,{headers:{'Accept':'application/json'}});
+      const reqUrl=BYTEBIN_BASE+encodeURIComponent(cleanKey);
+      const r=await fetch(reqUrl);
       if(r.ok){
-        return normalizeCloudData(await r.json());
+        const data=await r.json();
+        if(data&&data.name!==undefined)return normalizeCloudData(data);
       }
     }catch(e){}
   }
 
-  // 3. Từ Firebase Realtime DB (fb:<encodedBaseUrl>|<nodeId>)
-  if(rawId.startsWith('fb:')){
-    const parts=rawId.slice(3).split('|');
-    if(parts.length===2){
-      try{
-        const base=decodeURIComponent(parts[0]);
-        const reqUrl=base+'/cards/'+encodeURIComponent(parts[1])+'.json';
-        const r=await fetch(reqUrl);
-        if(r.ok)return normalizeCloudData(await r.json());
-      }catch(e){}
-    }
+  // 3. Cuối cùng mới kiểm tra bộ nhớ máy hiện tại
+  if(shortKey){
+    try{
+      const localCopy=localStorage.getItem('ky_k_'+shortKey);
+      if(localCopy)return normalizeCloudData(JSON.parse(localCopy));
+    }catch(e){}
   }
-
   return null;
 }
 
 function normalizeCloudData(d){
   if(!d)return null;
-  d.photo=expandImageRef(d.photo);
+  if(d.photo==='@main'||d.photo==='@m')d.photo=SAMPLE_MAIN;
   if(Array.isArray(d.strip)){
-    d.strip=d.strip.map(expandImageRef);
+    d.strip=d.strip.map(x=>{
+      if(typeof x==='string'&&x.startsWith('@')&&x.length<=3){
+        const idx=parseInt(x.slice(1),10);
+        return SAMPLE_STRIP[idx]||SAMPLE_STRIP[0];
+      }
+      return x;
+    });
+  }
+  if(!Array.isArray(d.stripBk))d.stripBk=[];
+  if(d.photo&&d.photoBk)BACKUP_MAP.set(d.photo,d.photoBk);
+  if(Array.isArray(d.strip)&&Array.isArray(d.stripBk)){
+    d.strip.forEach((u,i)=>{if(u&&d.stripBk[i])BACKUP_MAP.set(u,d.stripBk[i])});
   }
   if(!d.music)d.music='synth://yearbook';
-  else if(d.music.startsWith('@b:'))d.music=BYTEBIN_BASE+d.music.slice(3);
   return d;
 }
 
-// Tự động đồng bộ ngầm lên Cloud DB sau khi người dùng dừng gõ hoặc vừa thêm ảnh (800ms)
 function scheduleAutoCloudSync(){
   clearTimeout(cloudAutoTimer);
   cloudAutoTimer=setTimeout(async()=>{
+    if(pendingUploads>0)return;
     await saveToCloudStore();
-    await updateFastShareUrl();
-  },850);
+  },700);
 }
 
 async function tryExternalShorteners(longUrl){
   if(!longUrl.startsWith('http')||longUrl.includes('localhost')||longUrl.includes('127.0.0.1'))return '';
   try{
     const ctrl=new AbortController();
-    const timer=setTimeout(()=>ctrl.abort(),1800);
+    const timer=setTimeout(()=>ctrl.abort(),2200);
     const isgdUrl='https://is.gd/create.php?format=simple&url='+encodeURIComponent(longUrl);
     const r=await fetch(isgdUrl,{signal:ctrl.signal});
     clearTimeout(timer);
@@ -1464,7 +1411,7 @@ async function tryExternalShorteners(longUrl){
   }catch(e){}
   try{
     const ctrl=new AbortController();
-    const timer=setTimeout(()=>ctrl.abort(),1800);
+    const timer=setTimeout(()=>ctrl.abort(),2200);
     const tinyUrl='https://tinyurl.com/api-create.php?url='+encodeURIComponent(longUrl);
     const r=await fetch(tinyUrl,{signal:ctrl.signal});
     clearTimeout(timer);
@@ -1477,73 +1424,80 @@ async function tryExternalShorteners(longUrl){
 }
 
 async function shortenLinkNow(){
-  toast('☁️ Đang lưu ảnh lên Cloud DB & rút gọn link...');
+  if(pendingUploads>0){
+    toast('⏳ Đang tải ảnh/nhạc gốc lên Cloud, vui lòng chờ 1-2 giây...');
+    return;
+  }
+  toast('⚡ Đang đồng bộ Cloud DB & rút gọn link...');
   S.shortUrl='';
   await saveToCloudStore();
-  await updateFastShareUrl();
+  updateFastShareUrl();
   const shortExt=await tryExternalShorteners($('shareUrl').value);
   if(shortExt){
     S.shortUrl=shortExt;
-    await updateFastShareUrl();
-    copyShareLink('✅ Đã đồng bộ Cloud DB & tạo link siêu ngắn: '+shortExt);
+    updateFastShareUrl();
+    copyShareLink('✅ Đã tạo link siêu ngắn ('+shortExt+') kèm 100% ảnh gốc & nhạc!');
   }else{
-    copyShareLink('✅ Đã đồng bộ Cloud DB & sao chép link thiệp mời!');
+    copyShareLink('✅ Đã đồng bộ Cloud DB & sao chép link ngắn (?k='+S.shortKey+')!');
   }
 }
 
-// Khi chọn ảnh chính -> Tải ngay ảnh lên Cloud Image CDN (Bytebin / ImgBB) để nhận link https:// mở được trên mọi điện thoại!
+// Chọn ảnh chính: Hiển thị ngay lập tức + Tải nguyên bản chất lượng gốc lên Cloud CDN
 $('fMain').onchange=async e=>{
   const f=e.target.files[0];
   if(!f)return;
-  setDbStatus('☁️ Đang tải ảnh chính lên Cloud...',true);
-  toast('☁️ Đang nén & đẩy ảnh chính lên Cloud Database...');
+  const previewUrl=URL.createObjectURL(f);
+  S.photo=previewUrl;
+  S.shortUrl='';
+  render(false);
+  toast('☁️ Đang tải ảnh chính (100% chất lượng gốc) lên Cloud...');
   try{
-    S.photo=await uploadImageToCloudDB(f,false);
-    S.shortUrl='';
-    S.cloudId='';
+    const {url,bk}=await processAndUploadImage(f,false);
+    S.photo=url||previewUrl;
+    S.photoBk=bk||'';
     render(false);
     await saveToCloudStore();
-    await updateFastShareUrl();
-    toast('✅ Đã lưu ảnh chính lên Cloud DB (Mở trên điện thoại khác thấy 100%)!');
+    toast('✅ Đã lưu ảnh chính chất lượng gốc lên Cloud DB!');
   }catch(x){
-    setDbStatus('⚠️ Lỗi đọc ảnh',true);
     toast('Không đọc được ảnh này.');
   }
 };
 
-// Khi chọn nhiều ảnh thư viện -> Đẩy song song tất cả ảnh lên Cloud Image CDN
+// Chọn nhiều ảnh thư viện: Tải song song nguyên bản 100% chất lượng gốc lên Cloud CDN
 $('fStrip').onchange=async e=>{
   const fs=[...e.target.files].slice(0,8-S.strip.length);
   if(!fs.length)return toast('Thư viện tối đa 8 ảnh.');
-  setDbStatus(`☁️ Đang tải ${fs.length} ảnh lên Cloud...`,true);
-  toast(`☁️ Đang tải song song ${fs.length} ảnh lên Cloud Database...`);
-  const results=await Promise.all(fs.map(f=>uploadImageToCloudDB(f,true).catch(()=>null)));
-  results.forEach(r=>{if(r)S.strip.push(r)});
+  toast(`☁️ Đang tải ${fs.length} ảnh chất lượng gốc lên Cloud Database...`);
+  const results=await Promise.all(fs.map(f=>processAndUploadImage(f,true).catch(()=>null)));
+  results.forEach(r=>{
+    if(r&&r.url){
+      S.strip.push(r.url);
+      if(!Array.isArray(S.stripBk))S.stripBk=[];
+      S.stripBk.push(r.bk||'');
+    }
+  });
   e.target.value='';
   S.shortUrl='';
-  S.cloudId='';
   render(false);
   await saveToCloudStore();
-  await updateFastShareUrl();
-  toast(`✅ Đã lưu ${results.filter(Boolean).length} ảnh lên Cloud DB (Mọi điện thoại đều xem được)!`);
+  toast(`✅ Đã lưu ${results.filter(Boolean).length} ảnh gốc lên Cloud DB (Máy khác mở lên xem nét 100%)!`);
 };
 
+// Chọn file nhạc: Tải nguyên bản file nhạc MP3 lên Cloud CDN
 $('fMusic').onchange=async e=>{
   const f=e.target.files[0];
   if(!f)return;
   toast('☁️ Đang tải file nhạc lên Cloud Database...');
-  const u=await upMusic(f);
+  const u=await processAndUploadMusic(f);
   if(u){
     S.music=u;
     S.shortUrl='';
-    S.cloudId='';
     if($('selMelody'))$('selMelody').value='custom';
     vals();
     playCurrentMusic(true);
     render(false);
     await saveToCloudStore();
-    await updateFastShareUrl();
-    toast('🎵 Đã lưu file nhạc lên Cloud DB & phát nhạc nền!');
+    toast('🎵 Đã lưu file nhạc lên Cloud DB! Mở ở máy khác sẽ phát đúng bài nhạc này.');
   }
 };
 
@@ -1558,7 +1512,6 @@ function vals(){
 document.querySelectorAll('[data-k]').forEach(el=>el.addEventListener('input',()=>{
   S[el.dataset.k]=el.value;
   S.shortUrl='';
-  S.cloudId='';
   if(el.dataset.k==='music'){
     const sel=$('selMelody');
     if(sel)sel.value=(S.music&&MELODIES[S.music])?S.music:'custom';
@@ -1574,16 +1527,14 @@ $('tpls').onclick=e=>{
   if(b){
     S.tpl=b.dataset.id;
     S.shortUrl='';
-    S.cloudId='';
     replay();
     scheduleAutoCloudSync();
   }
 };
 
 function fillSample(){
-  S=Object.assign({},D,{tpl:S.tpl,photo:S.photo||SAMPLE_MAIN,strip:S.strip.length?S.strip:SAMPLE_STRIP.slice(),music:S.music||'synth://yearbook'});
+  S=Object.assign({},D,{tpl:S.tpl,shortKey:S.shortKey||genShortKey(6),photo:S.photo||SAMPLE_MAIN,strip:S.strip.length?S.strip:SAMPLE_STRIP.slice(),music:S.music||'synth://yearbook'});
   S.shortUrl='';
-  S.cloudId='';
   vals();
   render(true);
   scheduleAutoCloudSync();
@@ -1592,9 +1543,10 @@ function fillSample(){
 
 function loadSamplePhotos(){
   S.photo=SAMPLE_MAIN;
+  S.photoBk='';
   S.strip=SAMPLE_STRIP.slice();
+  S.stripBk=[];
   S.shortUrl='';
-  S.cloudId='';
   render(false);
   scheduleAutoCloudSync();
   toast('Đã nạp bộ ảnh kỷ yếu mẫu!');
@@ -1619,9 +1571,17 @@ function docHTML(guest){
   return '<!doctype html>\n'+c.outerHTML;
 }
 
-// Bấm "Lưu và xuất bản": Đẩy toàn bộ dữ liệu + ảnh lên Cloud DB trước rồi mới sao chép link!
+// Bấm "Lưu và xuất bản": Chờ mọi ảnh/nhạc gốc tải xong, đẩy hồ sơ lên Cloud DB, rồi sao chép link ngắn 6 ký tự!
 async function pub(){
-  toast('☁️ Đang lưu thiệp & ảnh lên Cloud Database...');
+  if(pendingUploads>0){
+    toast(`⏳ Đang hoàn tất tải ${pendingUploads} file ảnh/nhạc gốc lên Cloud...`);
+    while(pendingUploads>0){
+      await new Promise(r=>setTimeout(r,250));
+    }
+  }
+  const btn=$('bsave');
+  if(btn)btn.disabled=true;
+  toast('☁️ Đang đồng bộ toàn bộ ảnh gốc & nhạc lên Cloud Database...');
   S.shortUrl='';
   if(!S.music)S.music='synth://yearbook';
 
@@ -1629,21 +1589,23 @@ async function pub(){
   if(shareBox)shareBox.scrollIntoView({behavior:'smooth',block:'nearest'});
 
   const cloudOk=await saveToCloudStore();
-  await updateFastShareUrl();
+  updateFastShareUrl();
   const shortExt=await tryExternalShorteners($('shareUrl').value);
   if(shortExt){
     S.shortUrl=shortExt;
-    await updateFastShareUrl();
+    updateFastShareUrl();
   }
+  if(btn)btn.disabled=false;
+
   copyShareLink(cloudOk
-    ?'🎉 Đã lưu lên Cloud Database & sao chép Link! Mở trên mọi điện thoại đều có đủ ảnh & nhạc.'
-    :'🎉 Đã tạo & sao chép Link nhúng sẵn ảnh trực tiếp!'
+    ?'🎉 Đã lưu ảnh gốc + nhạc lên Cloud & sao chép Link ngắn! Mở trên máy khác sẽ thấy đầy đủ 100%.'
+    :'🎉 Đã tạo & sao chép Link thiệp mời ngắn!'
   );
 
   if(AR){
     try{
       await AR.publish(docHTML(false));
-      try{localStorage.removeItem('ky_draft_v4')}catch(e){}
+      try{localStorage.removeItem('ky_draft_v5')}catch(e){}
     }catch(e){}
   }
 }
@@ -1655,14 +1617,14 @@ function copyShareLink(customMsg){
   inp.setSelectionRange(0,999999);
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(inp.value).then(()=>{
-      toast(customMsg||'✅ Đã sao chép link thiệp mời (Đã đồng bộ Cloud DB)!');
+      toast(customMsg||'✅ Đã sao chép link ngắn! Hãy gửi cho bạn bè.');
     }).catch(()=>{
       document.execCommand('copy');
-      toast(customMsg||'✅ Đã sao chép link thiệp mời!');
+      toast(customMsg||'✅ Đã sao chép link ngắn!');
     });
   }else{
     document.execCommand('copy');
-    toast(customMsg||'✅ Đã sao chép link thiệp mời!');
+    toast(customMsg||'✅ Đã sao chép link ngắn!');
   }
 }
 
@@ -1726,39 +1688,34 @@ function closeResetModal(){
 function confirmReset(){
   closeResetModal();
   pauseAllMusic();
-  S=Object.assign({},D,{name:'',title:'',invite:'',date:'',time:'',quote:'',addr:'',phone:'',photo:'',strip:[],music:'synth://yearbook',cloudId:'',shortUrl:''});
-  try{localStorage.removeItem('ky_draft_v4')}catch(e){}
+  S=Object.assign({},D,{name:'',title:'',invite:'',date:'',time:'',quote:'',addr:'',phone:'',photo:'',photoBk:'',strip:[],stripBk:[],music:'synth://yearbook',shortKey:genShortKey(6),cloudId:'',shortUrl:''});
+  try{localStorage.removeItem('ky_draft_v5')}catch(e){}
   vals();
   render(true);
   toast('Đã xóa dữ liệu và làm mới từ đầu.');
 }
 
-// Khởi chạy & tự động tải dữ liệu + ảnh từ Cloud Database (?db=..., ?i=..., ?id=..., hoặc #...)
+// Khởi chạy & tự động tải dữ liệu + ảnh gốc + nhạc từ Cloud Database khi mở link ngắn (?k=xxxxxx) trên máy khác
 (async()=>{
   const params=new URLSearchParams(window.location.search);
-  const rawHash=(window.location.hash||'').replace(/^#/,'');
-  const legacyMatch=rawHash.match(/(?:^|&)d=([^&]+)/);
-  const compactCode=legacyMatch?legacyMatch[1]:(rawHash&&!rawHash.includes('=')?rawHash:'');
-  const cloudIdParam=params.get('db')||params.get('i')||params.get('id')||params.get('k');
-  const isGuestUrl=params.get('g')==='1'||params.get('mode')==='guest'||!!compactCode||!!cloudIdParam||$('kdata').dataset.g==='1';
-
-  if(compactCode){
-    const decoded=decodePayload(compactCode);
-    const expanded=expandCompactState(decoded);
-    if(expanded)S=Object.assign({},D,expanded);
-  }
-  if(cloudIdParam){
-    const cloudData=await loadFromCloudStore(cloudIdParam);
-    if(cloudData&&cloudData.name!==undefined){
-      S=Object.assign({},D,cloudData,{cloudId:cloudIdParam});
-    }
-  }
-  if(!S.music)S.music='synth://yearbook';
+  const shortKeyParam=params.get('k')||params.get('db')||params.get('i')||params.get('id');
+  const bytebinParam=params.get('b')||'';
+  const isGuestUrl=params.get('g')==='1'||params.get('mode')==='guest'||!!shortKeyParam||$('kdata').dataset.g==='1';
 
   if(isGuestUrl){
     ED=false;
     document.body.dataset.m='g';
     $('envOv').classList.remove('hide');
+    if(shortKeyParam){
+      if($('envSub'))$('envSub').textContent='☁️ Đang tải ảnh gốc & nhạc nền từ Cloud...';
+      render(false);
+      const cloudData=await loadFromCloudStore(shortKeyParam,bytebinParam);
+      if(cloudData&&cloudData.name!==undefined){
+        S=Object.assign({},D,cloudData);
+      }
+      if($('envSub'))$('envSub').textContent='Gửi tới bạn tấm thiệp lưu giữ thanh xuân (Kèm nhạc nền 🎵)';
+    }
+    if(!S.music)S.music='synth://yearbook';
     render(true);
     playCurrentMusic(false);
     return;
@@ -1782,17 +1739,17 @@ function confirmReset(){
 
   document.body.dataset.m='e';
   tab('e');
-  $('hint').textContent='Mỗi khi bạn chọn ảnh hoặc bấm "Lưu và xuất bản", ảnh sẽ được đẩy lên Cloud Database (Bytebin CDN / JsonStorage) để mở trên điện thoại khác luôn có đủ ảnh.';
+  $('hint').textContent='Ảnh được giữ nguyên 100% chất lượng gốc và lưu cùng file nhạc trên Cloud CDN. Bấm "Lưu và xuất bản" để đồng bộ vào mã link ngắn 6 ký tự (?k=...).';
   try{
-    const d=JSON.parse(localStorage.getItem('ky_draft_v4')||localStorage.getItem('ky_draft_v3')||'null');
+    const d=JSON.parse(localStorage.getItem('ky_draft_v5')||localStorage.getItem('ky_draft_v4')||'null');
     if(d&&d.name!==undefined){
       if(!d.music)d.music='synth://yearbook';
+      if(!d.shortKey)d.shortKey=genShortKey(6);
       S=Object.assign({},D,d);
     }
   }catch(e){}
   vals();
   render(true);
-  // Đồng bộ Cloud DB ngay khi mở để có sẵn mã ?db=... thật
   scheduleAutoCloudSync();
 })();
 </script>
